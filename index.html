@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas</title>
+  <style>
+    #myCanvas1, #myCanvas2, #myCanvas3, #myCanvas4, #myCanvas5 {
+      border: 1px #e40707 solid;
+      background: #f4f4f4;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container1">
+    <canvas id="myCanvas1" width="300" height="300"></canvas>
+  </div>
+  <div id="container2">
+    <canvas id="myCanvas2" width="300" height="300"></canvas>
+  </div>
+  <div id="container3">
+    <canvas id="myCanvas3" width="300" height="300"></canvas>
+  </div>
+  <div id="container4">
+    <canvas id="myCanvas4" width="300" height="300"></canvas>
+  </div>
+  <div id="container5">
+    <canvas id="myCanvas5" width="300" height="300"></canvas>
+  </div>
+
+  <script>
+    // Rectangle
+    var c1 = document.getElementById('myCanvas1');
+    var ctx1 = c1.getContext('2d');
+    ctx1.fillStyle = 'red';
+    ctx1.fillRect(75, 75, 150, 150);
+
+    // Gradient Rectangle
+    var c2 = document.getElementById('myCanvas2');
+    var ctx2 = c2.getContext('2d');
+    var grd = ctx2.createLinearGradient(0, 0, 100, 0);
+    grd.addColorStop(0, 'blue');
+    grd.addColorStop(1, 'white');
+    ctx2.fillStyle = grd;
+    ctx2.fillRect(10, 10, 150, 150);
+
+    // Line
+    var c3 = document.getElementById('myCanvas3');
+    var ctx3 = c3.getContext('2d');
+    ctx3.moveTo(0, 0);
+    ctx3.lineTo(250, 250);
+    ctx3.stroke();
+
+    // Circle
+    var c4 = document.getElementById('myCanvas4');
+    var ctx4 = c4.getContext('2d');
+    ctx4.beginPath();
+    ctx4.arc(150, 150, 60, 0, 2 * Math.PI);
+    ctx4.fillStyle = 'green';
+    ctx4.fill();
+    ctx4.lineWidth = 4;
+    ctx4.strokeStyle = 'red';
+    ctx4.stroke();
+
+    // Text
+    var c5 = document.getElementById('myCanvas5');
+    var ctx5 = c5.getContext('2d');
+    ctx5.font = '50px Arial';
+    ctx5.strokeStyle = 'red';
+    ctx5.strokeText('Hello world', 20, 150);
+  </script>
+</body>
+</html>
